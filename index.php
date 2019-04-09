@@ -1,7 +1,7 @@
 <?php
 include_once('FSK_MemImage.php');
 
-function createPDF($text1 = "", $text2 = "") {
+function createPDF($OutputType = "F", $text1 = "", $text2 = "") {
       $rand = rand(100000, 999999);
 
       $base_image = "/home/fskgrup/public_html/image.jpg"; // replace the your path file image
@@ -32,7 +32,9 @@ function createPDF($text1 = "", $text2 = "") {
 
        */
 
-      $pdf->Output("F", $create_path . "/".$filename.pdf);
+      $pdf->Output($OutputType, $create_path . "/".$filename.pdf);
       unset($pdf);
       return $create_path."/".$filename.pdf;
 }
+
+createPDF("F","FSK","GRUP.com");
